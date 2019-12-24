@@ -162,6 +162,8 @@ def send_message(request, h_pk, pk):
             packet_file = None
             if email.attach_packet:
                 packet_file = packet.get_packet_file_path()
+                if packet_file is None:
+                    messages.error(request, "There is no packet to attach! Please contact your administrator!")
 
             print(f"SENDING: {email.subject} TO: {contact} ({contact.email}) ATTACHMENT: {packet_file}")
             print(send_email_now(email.subject, message, contact.email, packet_file))
