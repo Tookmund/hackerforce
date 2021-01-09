@@ -57,7 +57,7 @@ fi
 
 cd hackerforce-backups
 
-heroku run -a "$HACKERFORCE" python manage.py dumpdata -- > "$(date --iso-8601=seconds).json"
+heroku run -a "$HACKERFORCE" -- python manage.py dumpdata > "$(date --iso-8601=seconds).json"
 ```
 
 After that make sure to mark it executable and run it, to make sure it actually
@@ -95,5 +95,5 @@ space.
 ## Restoring
 To restore a backup `mybackup.json`, use the heroku CLI again:
 ```
-heroku run -a myhackerforce python manage.py loaddata -e contenttypes - -- < mybackup.json
+heroku run -a myhackerforce -- python manage.py loaddata - -e contenttypes < mybackup.json
 ```
