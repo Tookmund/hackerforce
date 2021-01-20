@@ -40,6 +40,7 @@ cd "$HOME"
 
 if [ ! -d heroku ]
 then
+    mkdir heroku
     HEROKUTAR=heroku-linux-x64.tar.gz
     wget "https://cli-assets.heroku.com/$HEROKUTAR"
     tar xzvf "$HEROKUTAR" -C heroku
