@@ -73,7 +73,7 @@ This is precisely what cron allows you to do.
 Run `crontab -e` and add the following lines:
 ```
 MAILTO=YOUR@EMAIL
-7	4	*	*	*	./hackerforce-backups.sh
+7	4	*	*	*	./hackerforce-backup.sh
 ```
 (Note that this technically only works on Debian/Ubuntu-based machines,
 because only their version of cron respects environment variables set in
@@ -86,7 +86,7 @@ a day about your backups so you can keep an eye on them.
 
 If you don't care use this instead, without the MAILTO:
 ```
-7	4	*	*	*	./hackerforce-backups.sh > /dev/null 2>&1
+7	4	*	*	*	./hackerforce-backup.sh > /dev/null 2>&1
 ```
 If you don't add the `/dev/null` bit, Cron will still attempt to send emails,
 probably to your local account, which is usually pointless and just takes up
