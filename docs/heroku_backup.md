@@ -98,4 +98,4 @@ To restore a backup `mybackup.json`, use the heroku CLI again:
 heroku run --no-tty -a myhackerforce -- python manage.py loaddata -e contenttypes --format=json - < mybackup.json
 ```
 If your backup file begins with the line "Downloading the sponsorship packet to: {} /app/website/static/sponsorship.pdf"
-you'll need to remove this line in order for the data to load sucessfully.
+you'll need to remove this line in order for the data to load successfully.
