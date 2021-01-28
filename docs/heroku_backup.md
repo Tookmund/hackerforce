@@ -25,7 +25,7 @@ of course)
 
 ## Backup Script
 
-Next, put the following in `~/heroku-backup.sh`:
+Next, put the following in `~/hackerforce-backup.sh`:
 
 ```bash
 #!/bin/sh
