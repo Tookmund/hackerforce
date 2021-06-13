@@ -35,12 +35,12 @@ no one else can read it (this assumes you trust your system administrators,
 of course).
 
 An equivalent command `chmod go-rwx`. Let's break this down:
-`g` = group
-`o` = owner
-`-` = delete
-`r` = read access
-`w` = write access
-`x` = execute access
+* `g` = group
+* `o` = owner
+* `-` = delete
+* `r` = read access
+* `w` = write access
+* `x` = execute access
 
 ## Backup Script
 
