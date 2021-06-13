@@ -35,8 +35,9 @@ no one else can read it (this assumes you trust your system administrators,
 of course).
 
 An equivalent command `chmod go-rwx`. Let's break this down:
-* `g` = group
-* `o` = owner
+* `chmod` = change 
+* `g` = group 
+* `o` = other (anyone else who is not that in that group; e.g. at W&M, small group of people, such as professors and administrators, though certain administrators can bypass all, so be aware of that)
 * `-` = delete
 * `r` = read access
 * `w` = write access
