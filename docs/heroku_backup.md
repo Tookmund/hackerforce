@@ -48,6 +48,13 @@ An equivalent command `chmod go-rwx`. Let's break this down:
 Next, put the following in `~/hackerforce-backup.sh`:
 
 ```bash
+# When you try and run a text file (which is this script), this tells Linux to interpret this file as a shell executable
+# and execute it upon command. Instead of running the text file directly (which doesn't make sense), it runs the shell
+# with this script as its first argument. 
+
+# Right below is called a shebang/hasbang/etc. (https://en.wikipedia.org/wiki/Shebang_%28Unix%29) along with a 
+# path to run a certain command. 
+
 #!/bin/sh
 # Script for installing the Heroku CLI and backing up hackerforce
 set -e
@@ -122,7 +129,7 @@ In chmod 600 ..., this means giving the owner write and read access, but no exec
 So, in chmod 700 ..., this means giving the owner execute, write, and read acess and no permissions to nayone else.
 ```
 
-After that make sure to mark it executable and run it, to make sure it actually
+After that make sure to mark it executable (`chmod u+x hackerforce_backup.sh` ("u" for user and "+x" for giving executable access)) and run it, to make sure it actually. So, in conversion to octal format, `u+x` just changes the leftmost digit, and does not change the middle digit and the rightmost digits (keeps them the same)). 
 works. If it functions correctly, you should have two new folders: `heroku`
 and `hackerforce-backups`, and `hackerforce-backups` should contain a JSON file
 with your backups.
