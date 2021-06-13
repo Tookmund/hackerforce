@@ -3,9 +3,15 @@
 This tutorial assumes you have access to a remote always-running Linux x86\_64
 machine, like, for example, from your CS Department.
 
-Test change.
 
 ## Authorizing Heroku
+
+Little bit of clarification:
+We have Heroku, the service which helps developers deploy their apps.
+
+We also the `heroku` command line command, which is used to interface with the Heroku service.
+This is the easiest way to access Heroku the service from a lab machine. Lab machines do not have web browsers
+(they're all accessed with the command line). 
 
 This is a little tricky, since you can't necessarily follow the simple step
 of `heroku login`, since Heroku will detect the IP address mismatch and
