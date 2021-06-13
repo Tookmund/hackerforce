@@ -86,6 +86,7 @@ then
     mkdir hackerforce-backups
     # 1 (execute) + 2 (write) + 4 (read) = 7
     # You can set up any combination of the above ^^ (e.g. just execute and read = 1 + 4 = 5; in this case we want all permissions) 
+    # See below section on chmod octal format to understand how things like chmod 600 and chmod 700 work
     chmod 700 hackerforce-backups
 fi
 
@@ -94,11 +95,12 @@ cd hackerforce-backups
 heroku run -a "$HACKERFORCE" -- python manage.py dumpdata > "$(date --iso-8601=seconds).json"
 ```
 
+```
 Here's how chmod octal format works:
 
-You have three digits 
-_                          _                            _
-^                          ^                            ^
+You have three digits: 
+_                           _                            _
+^                           ^                            ^
 permissions for owner.     permissions for group        permissions for others
 
 And for each digit, you can set specific permissions according to a number.
@@ -111,6 +113,7 @@ Anytime you want a combination of these types of access, you add up the correspo
 for example, if you want the owner to have both execute and read access, you set the leftmost digit to 1 (execute) + 4 (read) = 5. 
 
 If you want to do the equivalent for group and others, you just place 5 in the middle and rightmost digit, respectively.
+```
 
 After that make sure to mark it executable and run it, to make sure it actually
 works. If it functions correctly, you should have two new folders: `heroku`
