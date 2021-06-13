@@ -58,6 +58,9 @@ HACKERFORCE=MYHACKERFORCE
 
 cd "$HOME"
 
+# Checks for a directory named "heroku"
+# If it does not exist, we download a tar ball (linux version of a .zip file), and extracts it, and inside of it,
+# there's a file named heroku. Then, we delete the .tar.gz directory generated in your home directory since we've already extracted it. 
 if [ ! -d heroku ]
 then
     HEROKUTAR=heroku-linux-x64.tar.gz
@@ -65,13 +68,24 @@ then
     tar xzvf "$HEROKUTAR"
     rm "$HEROKUTAR"
 fi
+
+
+# if it does exist, then we dont' need to re-install everything. 
+# we have a heroku folder that has everything we need to run
+
+
+# this is the location of the  heroku command 
+# this is making it so that the shell knows where to look for the `heroku` command
 export PATH="$PATH:$HOME/heroku/bin"
 
 heroku update
 
+# if a hackerforce backups directory does exist, create one
 if [ ! -d hackerforce-backups ]
 then
     mkdir hackerforce-backups
+    # 1 (execute) + 2 (write) + 4 (read) = 7
+    # You can set up any combination of the above ^^ (e.g. just execute and read = 1 + 4 = 5; in this case we want all permissions) 
     chmod 700 hackerforce-backups
 fi
 
@@ -79,6 +93,24 @@ cd hackerforce-backups
 
 heroku run -a "$HACKERFORCE" -- python manage.py dumpdata > "$(date --iso-8601=seconds).json"
 ```
+
+Here's how chmod octal format works:
+
+You have three digits 
+_                          _                            _
+^                          ^                            ^
+permissions for owner.     permissions for group        permissions for others
+
+And for each digit, you can set specific permissions according to a number.
+1 = execute access
+2 = write access
+4 = read access
+
+Anytime you want a combination of these types of access, you add up the corresponding numbers.
+
+for example, if you want the owner to have both execute and read access, you set the leftmost digit to 1 (execute) + 4 (read) = 5. 
+
+If you want to do the equivalent for group and others, you just place 5 in the middle and rightmost digit, respectively.
 
 After that make sure to mark it executable and run it, to make sure it actually
 works. If it functions correctly, you should have two new folders: `heroku`
