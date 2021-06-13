@@ -108,6 +108,8 @@ And for each digit, you can set specific permissions according to a number.
 2 = write access
 4 = read access
 
+0 = none of the above
+
 Anytime you want a combination of these types of access, you add up the corresponding numbers.
 
 for example, if you want the owner to have both execute and read access, 
@@ -115,6 +117,9 @@ you set the leftmost digit to 1 (execute) + 4 (read) = 5.
 
 If you want to do the equivalent for group and others, you just place 5 
 in the middle and rightmost digit, respectively.
+
+In chmod 600 ..., this means giving the owner write and read access, but no execute access. 
+So, in chmod 700 ..., this means giving the owner execute, write, and read acess and no permissions to nayone else.
 ```
 
 After that make sure to mark it executable and run it, to make sure it actually
