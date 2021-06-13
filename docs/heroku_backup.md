@@ -66,13 +66,15 @@ HACKERFORCE=MYHACKERFORCE
 cd "$HOME"
 
 # Checks for a directory named "heroku"
-# If it does not exist, we download a tar ball (linux version of a .zip file), and extracts it, and inside of it,
-# there's a file named heroku. Then, we delete the .tar.gz directory generated in your home directory since we've already extracted it. 
+# if it does not exist
 if [ ! -d heroku ]
 then
+    # get the heroku .tar.gz file from the internet 
     HEROKUTAR=heroku-linux-x64.tar.gz
     wget "https://cli-assets.heroku.com/$HEROKUTAR"
+    # extract it
     tar xzvf "$HEROKUTAR"
+    # remove the .tar.gz file (we've extracted it; we don't need it anymore)
     rm "$HEROKUTAR"
 fi
 
@@ -97,7 +99,11 @@ then
     chmod 700 hackerforce-backups
 fi
 
+# move to the folder we just created/already created from right above
 cd hackerforce-backups
+
+# The heroku command so that on our speicfic application, that is our HackerForce instance, we run Django's manage.py and dump our data
+# to a file in JSON format, and that file's name format is the current date and time.
 
 heroku run -a "$HACKERFORCE" -- python manage.py dumpdata > "$(date --iso-8601=seconds).json"
 ```
