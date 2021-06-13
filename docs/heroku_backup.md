@@ -165,7 +165,7 @@ This will backup at 4:07 AM every morning.
 Assuming your machine has a working email setup, this will email you once
 a day about your backups so you can keep an eye on them.
 
-If you don't care use this instead, without the MAILTO:
+If you don't care whether you get confirmation emails, use this instead, without the MAILTO:
 ```
 7	4	*	*	*	./hackerforce-backup.sh > /dev/null 2>&1
 ```
