@@ -13,6 +13,9 @@ We also the `heroku` command line command, which is used to interface with the H
 This is the easiest way to access Heroku the service from a lab machine. Lab machines do not have web browsers
 (they're all accessed with the command line). 
 
+By authorizing Heroku, we mean giving accessibility of Heroku the service to a lab machine. We are allowing
+access to a specific user in the Heroku service.
+
 This is a little tricky, since you can't necessarily follow the simple step
 of `heroku login`, since Heroku will detect the IP address mismatch and
 prevent you from continuing.
