@@ -146,7 +146,7 @@ So, in conversion to octal format, `u+x` just changes the leftmost digit,
 and does not change the middle digit and the rightmost digits (keeps them the same).
 ```
 
-## Cron Job ([How Cron Works](http://crontab.guru)))
+## Cron Job ([How Cron Works](http://crontab.guru))
 
 For this to be useful, it has to be run regularly.
 This is precisely what cron allows you to do.
